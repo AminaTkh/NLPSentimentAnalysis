@@ -9,10 +9,12 @@ As part of the classification task, the	tweets are preprocessed by applying vari
 The following steps have been performed during preprocessing:
 1. Replacing emojis, expressing happiness, with the word “posemojy” :) :] :3 :> 8) (: =) =] :’) :-)
 2. Replacing emojis, expressing sadness, with the word “negemojy” :(:[:<8( ):=(=[:’(:-(
-3. Replacing user mentions (with @ at the beginning) with the word “usermention” 4. Replacing laughing e.g. haha, ahaha, lol... with the word “laughintweet”
+3. Replacing user mentions (with @ at the beginning) with the word “usermention” 
+4. Replacing laughing e.g. haha, ahaha, lol... with the word “laughintweet”
 5. Replacing urls with the word “urlintweet”
 6. Deleting all the numbers and words that include numbers
-7. Changing elongated words to no more than 2 same letters (for example, Hmmmm -> Hmm) 8. Deleting non-alphanumeric characters
+7. Changing elongated words to no more than 2 same letters (for example, Hmmmm -> Hmm) 
+8. Deleting non-alphanumeric characters
 9. Deleting one-letter words
 10. Replacing words, expressing negations, with a special word “negationintweet”.
 11. All words were converted into lower case.
