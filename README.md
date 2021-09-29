@@ -1,10 +1,8 @@
 <meta name="robots" content="noindex">
 
-# NLPSentimentAnalysis
-### Building	a	sentiment	classifier	for	Twitter	
-#### MSc Computer Science. Natural Language Processing. Sentiment Analysis 
+# Sentiment Analysis. Building a sentiment classifier for Twitter	
 
-#### Preprocessing
+### Preprocessing
 
 As part of the classification task, the	tweets are preprocessed by applying various NLP techniques.
 
@@ -23,17 +21,17 @@ For tokenisation, TweetTokenizer was used. Words written with non-English symbol
 WordNetLemmatizer was used for reducing the size of vocabulary. Before it, POS tagging (nltk.tag.pos_tag) was performed to help the lemmatizer. For the purposes of this notebook only nouns and verbs were given their non-default tags. All other words were considered as adjectives.
 
 
-#### Feature extraction
+### Feature extraction
 
 For feature extraction both CountVectorizer and TFIDF from sklearn were used separately. By this, I divided my work into two parts. In both cases, after embedding, the matrices were reduced by applying Χ2 testing (chi-squared testing) in order to find 500 important features. This number of features was chosen after cross-validation.
 Three additional features were added: the number of positive words, the number of negative words and the number of bad words occurred in each tweet. The presence of these types of words could be highly correlated with the target label. The sets of positive and negative words were downloaded from https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html. The set of bad words - https://www.cs.cmu.edu/~biglou/resources/. The dimension of the final feature vector is 503. 500 words chosen by chi-squared testing and 3 features - “PositiveWords”,”NegativeWords”,”BadWords”.
 
 
-#### Classifiers
+### Classifiers
 
 In this notebook two families of machine learning algorithms are used: (1) traditional machine learning methods such as Multinomial Naive Bayes, Gaussian Naive Bayes and Passive Aggressive Classifier trained on different sets of features; (2) long short term memory (LSTM) neural networks evaluated using Keras library.
 
-#### Glove Word Embedding
+### Glove Word Embedding
 
 glove.6B.100d.txt contains a 100-dimensional version of the embedding. It presents a word followed by the weights (100 numbers) on each line. Keras provides a Tokenizer class that can be fit on the training data, converts text to sequences (texts_to_sequences() method) and provides
 a word_index attribute.
@@ -41,7 +39,7 @@ Categorical cross-entropy was used as loss with the rmsprop optimizer. After tes
 The model layers can be presented as following:
 Embedding(5000, 100) -> LSTM(100) -> Dense(3, activation = sigmoid)
 
-#### Use
+### Use
 
 To evaluate my code on additional data, the file locations of testsets should be entered into the list “filenames”. Then, the whole notebook should be run, with the results being output in the final two cells.
 Additional files negative-words.txt, positive-words, bad-words are added to the folder. 
